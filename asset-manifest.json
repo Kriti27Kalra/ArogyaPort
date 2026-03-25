@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ArogyaPort/static/css/main.a11fa647.css",
+    "main.js": "/ArogyaPort/static/js/main.d6f96455.js",
+    "index.html": "/ArogyaPort/index.html",
+    "main.a11fa647.css.map": "/ArogyaPort/static/css/main.a11fa647.css.map",
+    "main.d6f96455.js.map": "/ArogyaPort/static/js/main.d6f96455.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a11fa647.css",
+    "static/js/main.d6f96455.js"
+  ]
+}
