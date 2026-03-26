@@ -1,0 +1,82 @@
+/* WhyIndia.css */
+.why-india-page {
+  padding: 2rem 0 4rem;
+}
+
+.reasons-full {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 3rem 0;
+}
+
+.reason-block {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+  background: var(--bg-light);
+  border-radius: 1rem;
+  transition: all 0.3s;
+}
+
+.reason-block:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-md);
+}
+
+.reason-block.reverse {
+  flex-direction: row-reverse;
+}
+
+.reason-icon {
+  font-size: 4rem;
+  min-width: 100px;
+  text-align: center;
+}
+
+.reason-content h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+}
+
+.reason-content p {
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.cta-banner {
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
+  padding: 3rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+}
+
+.cta-banner h3 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.cta-banner p {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .reason-block,
+  .reason-block.reverse {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .reason-icon {
+    font-size: 3rem;
+  }
+  
+  .cta-banner {
+    padding: 2rem;
+  }
+}

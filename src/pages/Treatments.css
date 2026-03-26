@@ -1,0 +1,81 @@
+/* Treatments.css */
+.treatments-page {
+  padding: 8rem 0 4rem;
+}
+.treatments-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+}
+.treatments-sidebar {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+.category-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.category-btn.active, .category-btn:hover {
+  background: var(--bg-light);
+  color: var(--primary);
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.info-card {
+  background: var(--bg-light);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  text-align: center;
+}
+.info-card i {
+  font-size: 1.5rem;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.hospital-list, .doctor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+.hospital-chip, .doctor-chip {
+  background: var(--bg-light);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+  transition: 0.3s;
+}
+.cta-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+}
+@media (max-width: 768px) {
+  .treatments-layout {
+    grid-template-columns: 1fr;
+  }
+  .cta-row { flex-direction: column; }
+}

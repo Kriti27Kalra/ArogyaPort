@@ -1,0 +1,83 @@
+/* src/pages/HospitalDetail.css */
+.hospital-detail-page {
+  padding: 2rem 0 4rem;
+}
+
+.hospital-detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.hospital-main h1 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-dark);
+}
+
+.location, .accreditation {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hospital-stats {
+  display: flex;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--bg-light);
+  border-radius: 0.75rem;
+}
+
+.hospital-stats .stat {
+  text-align: center;
+}
+
+.hospital-stats .stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.hospital-stats .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.description h2, .facilities h2 {
+  margin: 1.5rem 0 1rem;
+}
+
+.facilities ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.facilities li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--bg-light);
+  border-radius: 0.5rem;
+}
+
+.facilities li i {
+  color: var(--success);
+}
+
+@media (max-width: 768px) {
+  .hospital-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .facilities ul {
+    grid-template-columns: 1fr;
+  }
+}
