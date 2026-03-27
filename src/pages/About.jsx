@@ -8,7 +8,7 @@ export default function About() {
     <main className="about-page">
       <div className="container">
         <div className="section-header">
-          <h1>About MediConnect</h1>
+          <h1>About ArogyaPort</h1>
           <p>India's Most Trusted Medical Tourism Facilitator</p>
         </div>
 
@@ -17,7 +17,7 @@ export default function About() {
             <div className="about-text">
               <h2>Your Health, Our Priority</h2>
               <p>
-                MediConnect India Medical Tourism is a premier healthcare facilitation company dedicated 
+                ArogyaPort India Medical Tourism is a premier healthcare facilitation company dedicated 
                 to connecting international patients with world-class medical facilities in India. With 
                 over 15 years of experience in the healthcare industry, we have helped thousands of 
                 patients from 85+ countries receive quality medical care at affordable costs.

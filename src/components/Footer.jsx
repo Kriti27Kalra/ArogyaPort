@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="footer-brand">
             <div className="footer-logo">
               <span className="logo-icon">🏥</span>
-              <span className="logo-main">MediConnect</span>
+              <span className="logo-main">ArogyaPort</span>
             </div>
             <p>India's trusted medical tourism partner. We connect international patients with top hospitals and doctors.</p>
           </div>
@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
         
         <div className="footer-bottom">
-          <p>© 2025 MediConnect – India Medical Tourism. All rights reserved.</p>
+          <p>© 2025 ArogyaPort – India Medical Tourism. All rights reserved.</p>
           <div className="footer-legal">
             <Link to="/privacy-policy">Privacy Policy</Link>
             <span>|</span>

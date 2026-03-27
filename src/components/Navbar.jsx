@@ -45,14 +45,7 @@ export default function Navbar() {
                 <i className="fas fa-envelope"></i> care@medicaltourism.com
               </a>
             </div>
-            <div className="topbar-tools">
-              <select className="language-select" aria-label="Language">
-                <option value="en">🌐 English</option>
-                <option value="ar">العربية</option>
-                <option value="ru">Русский</option>
-              </select>
-              <span className="currency-select">💰 USD</span>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -62,13 +55,20 @@ export default function Navbar() {
         <div className="container">
           <div className="header-content">
             {/* Logo */}
-            <Link to="/" className="logo" onClick={closeAllMenus}>
-              <span className="logo-icon">🏥</span>
-              <div className="logo-text">
-                <span className="logo-name">MediConnect</span>
-                <span className="logo-tagline">India Medical Tourism</span>
-              </div>
-            </Link>
+           {/* Logo with Circular Image */}
+<Link to="/" className="logo" onClick={closeAllMenus}>
+  <div className="logo-circle">
+    <img 
+      src="/logo2.jpeg" 
+      alt="ArogyaPort Logo" 
+      className="logo-image"
+    />
+  </div>
+  <div className="logo-text">
+    <span className="logo-name">ArogyaPort</span>
+    <span className="logo-tagline">India Medical Tourism</span>
+  </div>
+</Link>
 
             {/* Navigation Menu */}
             <nav className={`nav-menu ${menuOpen ? 'open' : ''}`}>

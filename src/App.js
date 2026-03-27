@@ -1,14 +1,10 @@
-// src/App.js - Updated with all routes
+// src/App.js - Clean version without language/currency translators
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
-import { LanguageProvider } from './contexts/LanguageContext';
-import { CurrencyProvider } from './contexts/CurrencyContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
-import CurrencyConverter from './components/CurrencyConverter';
-import LanguageSwitcher from './components/LanguageSwitcher';
 
 // Pages
 import Home from './pages/Home';
@@ -51,63 +47,57 @@ import './App.css';
 
 function App() {
   return (
-    <LanguageProvider>
-      <CurrencyProvider>
-        <AuthProvider>
-          <Router>
-            <div className="main-wrapper">
-              <Navbar />
-              <div className="content-wrapper">
-                <Routes>
-                  {/* Public Routes */}
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/why-india" element={<WhyIndia />} />
-                  <Route path="/treatments" element={<Treatments />} />
-                  <Route path="/treatments/:id" element={<TreatmentDetail />} />
-                  <Route path="/hospitals" element={<Hospitals />} />
-                  <Route path="/hospitals/:id" element={<HospitalDetail />} />
-                  <Route path="/doctors" element={<Doctors />} />
-                  <Route path="/doctors/:id" element={<DoctorDetail />} />
-                  <Route path="/packages" element={<Packages />} />
-                  <Route path="/packages/:id" element={<PackageDetail />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:id" element={<BlogDetail />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/enquiry" element={<Enquiry />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/register" element={<Register />} />
-                  
-                  {/* User Panel Routes */}
-                  <Route path="/dashboard" element={<Dashboard />}>
-                    <Route index element={<Profile />} />
-                    <Route path="profile" element={<Profile />} />
-                    <Route path="enquiries" element={<MyEnquiries />} />
-                    <Route path="favorites" element={<Favorites />} />
-                    <Route path="bookings" element={<Bookings />} />
-                  </Route>
-                  
-                  {/* Admin Panel Routes */}
-                  <Route path="/admin" element={<AdminDashboard />} />
-                  <Route path="/admin/hospitals" element={<ManageHospitals />} />
-                  <Route path="/admin/doctors" element={<ManageDoctors />} />
-                  <Route path="/admin/treatments" element={<ManageTreatments />} />
-                  <Route path="/admin/packages" element={<ManagePackages />} />
-                  <Route path="/admin/blogs" element={<ManageBlogs />} />
-                  <Route path="/admin/enquiries" element={<ManageEnquiries />} />
-                  <Route path="/admin/testimonials" element={<ManageTestimonials />} />
-                </Routes>
-              </div>
-              <Footer />
-              <WhatsAppButton />
-              <CurrencyConverter />
-              <LanguageSwitcher />
-            </div>
-          </Router>
-        </AuthProvider>
-      </CurrencyProvider>
-    </LanguageProvider>
+    <AuthProvider>
+      <Router>
+        <div className="main-wrapper">
+          <Navbar />
+          <div className="content-wrapper">
+            <Routes>
+              {/* Public Routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/why-india" element={<WhyIndia />} />
+              <Route path="/treatments" element={<Treatments />} />
+              <Route path="/treatments/:id" element={<TreatmentDetail />} />
+              <Route path="/hospitals" element={<Hospitals />} />
+              <Route path="/hospitals/:id" element={<HospitalDetail />} />
+              <Route path="/doctors" element={<Doctors />} />
+              <Route path="/doctors/:id" element={<DoctorDetail />} />
+              <Route path="/packages" element={<Packages />} />
+              <Route path="/packages/:id" element={<PackageDetail />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogDetail />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/enquiry" element={<Enquiry />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              
+              {/* User Panel Routes */}
+              <Route path="/dashboard" element={<Dashboard />}>
+                <Route index element={<Profile />} />
+                <Route path="profile" element={<Profile />} />
+                <Route path="enquiries" element={<MyEnquiries />} />
+                <Route path="favorites" element={<Favorites />} />
+                <Route path="bookings" element={<Bookings />} />
+              </Route>
+              
+              {/* Admin Panel Routes */}
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/hospitals" element={<ManageHospitals />} />
+              <Route path="/admin/doctors" element={<ManageDoctors />} />
+              <Route path="/admin/treatments" element={<ManageTreatments />} />
+              <Route path="/admin/packages" element={<ManagePackages />} />
+              <Route path="/admin/blogs" element={<ManageBlogs />} />
+              <Route path="/admin/enquiries" element={<ManageEnquiries />} />
+              <Route path="/admin/testimonials" element={<ManageTestimonials />} />
+            </Routes>
+          </div>
+          <Footer />
+          <WhatsAppButton />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
