@@ -1,25 +1,442 @@
-/* Doctors.css */
+/* Doctors.css - Green & Orange Theme */
+
 .doctors-page {
   padding: 8rem 0 4rem;
 }
+
+/* Page Header */
+.doctors-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.doctors-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-green-dark);
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+}
+
+.doctors-header h1:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-orange);
+  border-radius: 2px;
+}
+
+.doctors-header p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+/* Filters Section */
+.doctors-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--bg-light);
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.filter-select:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.filter-select:hover {
+  border-color: var(--primary-green-light);
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  width: 250px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+/* Doctors Grid */
 .doctors-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
+  margin-bottom: 2rem;
 }
+
+/* Doctor Card */
 .doctor-card {
   background: white;
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   padding: 1.5rem;
   text-align: center;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
-.doctor-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.doctor-avatar { font-size: 4rem; margin-bottom: 0.5rem; }
-.specialty { color: var(--primary); font-weight: 600; margin: 0.5rem 0; }
-.qualification, .experience, .hospital {
+
+.doctor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--accent-orange));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.doctor-card:hover::before {
+  transform: scaleX(1);
+}
+
+.doctor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(46, 125, 50, 0.15);
+  border-color: var(--primary-green-light);
+}
+
+/* Doctor Avatar */
+.doctor-avatar {
+  font-size: 4rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+}
+
+.doctor-avatar i {
+  color: var(--primary-green);
+  transition: color 0.3s ease;
+}
+
+.doctor-card:hover .doctor-avatar i {
+  color: var(--accent-orange);
+}
+
+.avatar-badge {
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+  background: var(--accent-orange);
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+/* Doctor Info */
+.doctor-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.specialty {
+  color: var(--primary-green);
+  font-weight: 600;
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(46, 125, 50, 0.1);
+  border-radius: 50px;
+}
+
+.qualification,
+.experience,
+.hospital {
   font-size: 0.875rem;
   color: var(--text-muted);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.qualification i,
+.experience i,
+.hospital i {
+  color: var(--primary-green);
+  font-size: 0.75rem;
+  width: 1rem;
+}
+
+/* Rating Section */
+.doctor-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.stars {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.stars i {
+  font-size: 0.875rem;
+}
+
+.stars .fa-star,
+.stars .fa-star-half-alt {
+  color: var(--accent-orange);
+}
+
+.stars .fa-star-o {
+  color: var(--gray-light);
+}
+
+.rating-value {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Availability Badge */
+.availability {
+  margin: 0.75rem 0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.availability.available {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.availability.unavailable {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+}
+
+/* Doctor Actions */
+.doctor-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-book {
+  flex: 1;
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-book:hover {
+  background: var(--primary-green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+.btn-profile {
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-profile:hover {
+  border-color: var(--primary-green);
+  color: var(--primary-green);
+  transform: translateY(-2px);
+}
+
+/* Featured Doctor Badge */
+.featured-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent-orange);
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  background: var(--bg-light);
+  border-radius: 1rem;
+  color: var(--text-muted);
+}
+
+.no-results i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-green-light);
+}
+
+/* Load More Button */
+.load-more {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-load-more {
+  background: transparent;
+  border: 2px solid var(--primary-green);
+  color: var(--primary-green);
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-load-more:hover {
+  background: var(--primary-green);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .doctors-page {
+    padding: 6rem 0 3rem;
+  }
+  
+  .doctors-header h1 {
+    font-size: 2rem;
+  }
+  
+  .doctors-header p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .doctors-filters {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+  
+  .filter-group {
+    justify-content: center;
+  }
+  
+  .search-input {
+    width: 100%;
+  }
+  
+  .doctors-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  
+  .doctor-card {
+    padding: 1.25rem;
+  }
+  
+  .doctor-avatar {
+    font-size: 3rem;
+  }
+  
+  .doctor-card h3 {
+    font-size: 1.125rem;
+  }
+  
+  .doctor-actions {
+    flex-direction: column;
+  }
+  
+  .btn-book,
+  .btn-profile {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctors-page {
+    padding: 5rem 0 2rem;
+  }
+  
+  .doctors-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .filter-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .filter-select {
+    width: 100%;
+  }
+  
+  .doctors-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .qualification,
+  .experience,
+  .hospital {
+    font-size: 0.75rem;
+  }
+  
+  .btn-load-more {
+    width: 100%;
+    padding: 0.75rem;
+  }
 }

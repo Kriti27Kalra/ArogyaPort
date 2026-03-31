@@ -45,7 +45,6 @@ export default function Navbar() {
                 <i className="fas fa-envelope"></i> care@medicaltourism.com
               </a>
             </div>
-            
           </div>
         </div>
       </div>
@@ -54,31 +53,51 @@ export default function Navbar() {
       <header className={`main-header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <div className="header-content">
-            {/* Logo */}
-           {/* Logo with Circular Image */}
-<Link to="/" className="logo" onClick={closeAllMenus}>
-  <div className="logo-circle">
-    <img 
-      src="/logo2.jpeg" 
-      alt="ArogyaPort Logo" 
-      className="logo-image"
-    />
-  </div>
-  <div className="logo-text">
-    <span className="logo-name">ArogyaPort</span>
-    <span className="logo-tagline">India Medical Tourism</span>
-  </div>
-</Link>
+            {/* Logo with Circular Image */}
+            <Link to="/" className="logo" onClick={closeAllMenus}>
+              <div className="logo-circle">
+                <img 
+                  src="/logo2.jpeg" 
+                  alt="ArogyaPort Logo" 
+                  className="logo-image"
+                />
+              </div>
+              <div className="logo-text">
+                <span className="logo-name">ArogyaPort</span>
+                <span className="logo-tagline">India Medical Tourism</span>
+              </div>
+            </Link>
 
             {/* Navigation Menu */}
             <nav className={`nav-menu ${menuOpen ? 'open' : ''}`}>
-              <NavLink to="/" className="nav-link" onClick={closeAllMenus}>Home</NavLink>
-              <NavLink to="/treatments" className="nav-link" onClick={closeAllMenus}>Treatments</NavLink>
-              <NavLink to="/hospitals" className="nav-link" onClick={closeAllMenus}>Hospitals</NavLink>
-              <NavLink to="/doctors" className="nav-link" onClick={closeAllMenus}>Doctors</NavLink>
-              <NavLink to="/packages" className="nav-link" onClick={closeAllMenus}>Packages</NavLink>
-              <NavLink to="/blog" className="nav-link" onClick={closeAllMenus}>Blog</NavLink>
-              <NavLink to="/contact" className="nav-link" onClick={closeAllMenus}>Contact</NavLink>
+              <NavLink to="/" className="nav-link" onClick={closeAllMenus}>
+                {/* <i className="fas fa-home"></i> */}
+                <span>Home</span>
+              </NavLink>
+              <NavLink to="/treatments" className="nav-link" onClick={closeAllMenus}>
+                {/* <i className="fas fa-stethoscope"></i> */}
+                <span>Treatments</span>
+              </NavLink>
+              <NavLink to="/hospitals" className="nav-link" onClick={closeAllMenus}>
+                {/* <i className="fas fa-hospital"></i> */}
+                <span>Hospitals</span>
+              </NavLink>
+              <NavLink to="/doctors" className="nav-link" onClick={closeAllMenus}>
+                {/* <i className="fas fa-user-md"></i> */}
+                <span>Doctors</span>
+              </NavLink>
+              <NavLink to="/packages" className="nav-link" onClick={closeAllMenus}>
+                {/* <i className="fas fa-box"></i> */}
+                <span>Packages</span>
+              </NavLink>
+              <NavLink to="/blog" className="nav-link" onClick={closeAllMenus}>
+                {/* <i className="fas fa-blog"></i> */}
+                <span>Blog</span>
+              </NavLink>
+              <NavLink to="/contact" className="nav-link" onClick={closeAllMenus}>
+                {/* <i className="fas fa-envelope"></i> */}
+                <span>Contact</span>
+              </NavLink>
             </nav>
 
             {/* Right Actions */}

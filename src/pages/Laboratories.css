@@ -1,32 +1,522 @@
-.labs-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
-.lab-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: all 0.3s; }
-.lab-card:hover { box-shadow: var(--shadow-hover); }
-.lab-card-header { display: flex; align-items: center; gap: 16px; padding: 24px 24px 0; flex-wrap: wrap; }
-.lab-icon { font-size: 2.5rem; flex-shrink: 0; }
-.lab-card-header > div:nth-child(2) { flex: 1; }
-.lab-badge { display: inline-block; background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 50px; margin-bottom: 6px; }
-.lab-card-header h3 { font-family: var(--font-body); font-weight: 700; font-size: 1.1rem; color: var(--text); }
-.lab-rating { text-align: right; flex-shrink: 0; }
-.rating-val { display: block; font-weight: 700; color: var(--primary); font-size: 1rem; }
-.rating-count { font-size: 0.78rem; color: var(--text-muted); }
-.lab-info { padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
-.lab-info-item { display: flex; align-items: flex-start; gap: 12px; }
-.lab-info-item i { color: var(--primary); margin-top: 3px; width: 16px; text-align: center; flex-shrink: 0; }
-.lab-info-item p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
-.lab-map { padding: 0 24px; }
-.lab-actions { display: flex; gap: 12px; padding: 20px 24px 24px; }
-.lab-actions .btn { flex: 1; justify-content: center; }
-.equip-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-.equip-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 20px; text-align: center; box-shadow: var(--shadow); transition: all 0.3s; }
-.equip-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
-.equip-icon { font-size: 2.5rem; margin-bottom: 14px; }
-.equip-card h4 { font-family: var(--font-body); font-weight: 700; color: var(--text); margin-bottom: 8px; }
-.equip-card p { font-size: 0.88rem; color: var(--text-muted); }
-.accred-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
-.accred-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 20px; text-align: center; box-shadow: var(--shadow); transition: all 0.3s; }
-.accred-card:hover { box-shadow: var(--shadow-hover); border-color: var(--primary-light); }
-.accred-icon { font-size: 2.2rem; margin-bottom: 12px; }
-.accred-card h4 { font-family: var(--font-body); font-weight: 700; color: var(--text); margin-bottom: 8px; }
-.accred-card p { font-size: 0.88rem; color: var(--text-muted); }
-@media (max-width: 900px) { .labs-grid { grid-template-columns: 1fr; } .equip-grid { grid-template-columns: repeat(2,1fr); } .accred-grid { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 500px) { .equip-grid { grid-template-columns: 1fr; } .accred-grid { grid-template-columns: 1fr; } .lab-actions { flex-direction: column; } }
+/* Labs.css - Green & Orange Theme */
+
+/* Labs Grid */
+.labs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-bottom: 3rem;
+}
+
+/* Lab Card */
+.lab-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.lab-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--accent-orange));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.lab-card:hover::before {
+  transform: scaleX(1);
+}
+
+.lab-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(46, 125, 50, 0.15);
+  border-color: var(--primary-green-light);
+}
+
+/* Lab Card Header */
+.lab-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 24px 0;
+  flex-wrap: wrap;
+}
+
+.lab-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  color: var(--primary-green);
+  transition: color 0.3s ease;
+}
+
+.lab-card:hover .lab-icon {
+  color: var(--accent-orange);
+}
+
+.lab-card-header > div:nth-child(2) {
+  flex: 1;
+}
+
+.lab-badge {
+  display: inline-block;
+  background: var(--primary-green);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  margin-bottom: 6px;
+}
+
+.lab-card-header h3 {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+}
+
+.lab-card:hover h3 {
+  color: var(--primary-green);
+}
+
+/* Lab Rating */
+.lab-rating {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.rating-val {
+  display: block;
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 1rem;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+.rating-stars i {
+  font-size: 0.75rem;
+}
+
+.rating-stars .fa-star,
+.rating-stars .fa-star-half-alt {
+  color: var(--accent-orange);
+}
+
+.rating-stars .fa-star-o {
+  color: var(--gray-light);
+}
+
+.rating-count {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Lab Info */
+.lab-info {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lab-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.lab-info-item i {
+  color: var(--primary-green);
+  margin-top: 3px;
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+}
+
+.lab-info-item p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Lab Map */
+.lab-map {
+  padding: 0 24px;
+}
+
+.lab-map iframe {
+  width: 100%;
+  height: 150px;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+/* Lab Actions */
+.lab-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px 24px;
+}
+
+.lab-actions .btn {
+  flex: 1;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary-green);
+  color: var(--primary-green);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--primary-green);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.75rem;
+  color: var(--primary-green-dark);
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-orange);
+  border-radius: 2px;
+}
+
+.section-header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* Equipment Grid */
+.equip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 3rem;
+}
+
+.equip-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 28px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.equip-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(46, 125, 50, 0.15);
+  border-color: var(--primary-green-light);
+}
+
+.equip-icon {
+  font-size: 2.5rem;
+  margin-bottom: 14px;
+  color: var(--primary-green);
+  transition: color 0.3s ease;
+}
+
+.equip-card:hover .equip-icon {
+  color: var(--accent-orange);
+}
+
+.equip-card h4 {
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.equip-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Accreditation Grid */
+.accred-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 3rem;
+}
+
+.accred-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 28px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.accred-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(46, 125, 50, 0.15);
+  border-color: var(--primary-green-light);
+}
+
+.accred-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: var(--primary-green);
+  transition: color 0.3s ease;
+}
+
+.accred-card:hover .accred-icon {
+  color: var(--accent-orange);
+}
+
+.accred-card h4 {
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.accred-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* Featured Lab Badge */
+.featured-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent-orange);
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+/* CTA Section */
+.labs-cta {
+  background: linear-gradient(135deg, var(--primary-green-dark), var(--primary-green));
+  padding: 3rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.labs-cta h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.labs-cta p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.btn-cta {
+  background: var(--accent-orange);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-cta:hover {
+  background: var(--accent-orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  background: var(--bg-light);
+  border-radius: 1rem;
+  color: var(--text-muted);
+}
+
+.no-results i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-green-light);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .labs-grid {
+    gap: 20px;
+  }
+  
+  .equip-grid {
+    gap: 16px;
+  }
+  
+  .accred-grid {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .labs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .equip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .accred-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .lab-card-header {
+    padding: 20px 20px 0;
+  }
+  
+  .lab-info {
+    padding: 16px 20px;
+  }
+  
+  .lab-map {
+    padding: 0 20px;
+  }
+  
+  .lab-actions {
+    padding: 16px 20px 20px;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .labs-cta {
+    padding: 2rem;
+  }
+  
+  .labs-cta h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .equip-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .accred-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .lab-actions {
+    flex-direction: column;
+  }
+  
+  .lab-card-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .lab-rating {
+    text-align: center;
+  }
+  
+  .rating-stars {
+    justify-content: center;
+  }
+  
+  .lab-info-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .lab-info-item i {
+    margin-bottom: 4px;
+  }
+  
+  .lab-map iframe {
+    height: 120px;
+  }
+  
+  .labs-cta {
+    padding: 1.5rem;
+  }
+  
+  .btn-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
