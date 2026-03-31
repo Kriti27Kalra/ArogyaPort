@@ -1,4 +1,5 @@
 /* Navbar.css - Green & Orange Theme (Matching Home.css) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 /* ============================================
    Variables - Matching Home.css Theme
@@ -39,6 +40,10 @@
   --error: #EF4444;
   --danger: #EF4444;
   --danger-dark: #DC2626;
+  
+  /* Font Families */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
 }
 
 /* ============================================
@@ -53,6 +58,8 @@
   top: 0;
   width: 100%;
   z-index: 1001;
+  font-family: var(--font-secondary);
+  font-weight: 500;
 }
 
 .topbar .container {
@@ -82,6 +89,8 @@
   align-items: center;
   gap: 0.5rem;
   transition: opacity 0.3s;
+  font-family: var(--font-secondary);
+  font-weight: 500;
 }
 
 .contact-link:hover {
@@ -100,6 +109,8 @@
   cursor: pointer;
   padding: 0.25rem;
   font-size: 0.8rem;
+  font-family: var(--font-secondary);
+  font-weight: 500;
 }
 
 .language-select option {
@@ -111,6 +122,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
+  font-family: var(--font-secondary);
+  font-weight: 500;
 }
 
 /* ============================================
@@ -124,6 +137,7 @@
   box-shadow: var(--shadow);
   z-index: 1000;
   transition: all 0.3s ease;
+  font-family: var(--font-primary);
 }
 
 .main-header.scrolled {
@@ -197,6 +211,7 @@
   background-clip: text;
   color: transparent;
   letter-spacing: -0.5px;
+  font-family: var(--font-primary);
 }
 
 .logo-tagline {
@@ -204,6 +219,7 @@
   color: var(--text-muted);
   letter-spacing: 0.5px;
   font-weight: 500;
+  font-family: var(--font-secondary);
 }
 
 /* ============================================
@@ -226,6 +242,7 @@
   border-radius: 0.5rem;
   transition: all 0.3s;
   white-space: nowrap;
+  font-family: var(--font-primary);
 }
 
 .nav-link:hover {
@@ -262,6 +279,7 @@
   gap: 0.5rem;
   transition: all 0.3s;
   white-space: nowrap;
+  font-family: var(--font-primary);
 }
 
 .btn-enquiry:hover {
@@ -292,6 +310,7 @@
   gap: 0.5rem;
   transition: all 0.3s;
   white-space: nowrap;
+  font-family: var(--font-primary);
 }
 
 .btn-login:hover {
@@ -314,6 +333,7 @@
   gap: 0.5rem;
   transition: all 0.3s;
   white-space: nowrap;
+  font-family: var(--font-primary);
 }
 
 .btn-register:hover {
@@ -339,6 +359,7 @@
   padding: 0.25rem 0.75rem 0.25rem 0.25rem;
   cursor: pointer;
   transition: all 0.3s;
+  font-family: var(--font-primary);
 }
 
 .user-btn:hover {
@@ -357,12 +378,14 @@
   color: white;
   font-weight: 600;
   font-size: 0.9rem;
+  font-family: var(--font-primary);
 }
 
 .user-name {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-dark);
+  font-family: var(--font-primary);
 }
 
 .user-btn i {
@@ -416,6 +439,7 @@
   color: white;
   font-weight: 700;
   font-size: 1rem;
+  font-family: var(--font-primary);
 }
 
 .dropdown-info {
@@ -426,11 +450,14 @@
   display: block;
   font-size: 0.9rem;
   color: var(--text-dark);
+  font-family: var(--font-primary);
+  font-weight: 700;
 }
 
 .dropdown-info span {
   font-size: 0.7rem;
   color: var(--text-muted);
+  font-family: var(--font-secondary);
 }
 
 .dropdown-divider {
@@ -453,6 +480,8 @@
   text-align: left;
   background: none;
   border: none;
+  font-family: var(--font-secondary);
+  font-weight: 500;
 }
 
 .dropdown-link i {
