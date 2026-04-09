@@ -1286,3 +1286,347 @@ body {
     font-size: 0.7rem;
   }
 }
+/* Modal Styles - Add to your existing Home.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container {
+  background: var(--bg-white);
+  border-radius: 1.5rem;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.9) translateY(30px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-2xl);
+}
+
+.modal-container.active {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.modal-close {
+  position: sticky;
+  top: 1rem;
+  right: 1rem;
+  float: right;
+  background: var(--gray-100);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--gray-700);
+  transition: all var(--transition-base);
+  z-index: 10;
+  margin: 1rem;
+}
+
+.modal-close:hover {
+  background: var(--accent-orange);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  padding: 2rem 2rem 1rem;
+  text-align: center;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.modal-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.modal-header h2 {
+  font-size: 2rem;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-primary);
+  font-weight: 800;
+}
+
+.modal-subtitle {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  font-family: var(--font-secondary);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.info-section h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--gray-900);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-section h3 i {
+  color: var(--primary-green);
+  font-size: 1.25rem;
+}
+
+.info-section p {
+  color: var(--gray-700);
+  line-height: 1.6;
+  font-family: var(--font-secondary);
+}
+
+.stats-grid-modal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, var(--gray-100), white);
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition-base);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-green-light);
+}
+
+.stat-card i {
+  font-size: 2rem;
+  color: var(--primary-green);
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: var(--gray-600);
+  font-family: var(--font-secondary);
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  font-family: var(--font-primary);
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background: var(--gray-100);
+  border-radius: 0.5rem;
+  transition: all var(--transition-base);
+}
+
+.benefits-list li:hover {
+  background: var(--primary-green-soft);
+  transform: translateX(5px);
+}
+
+.benefits-list li i {
+  color: var(--primary-green);
+  font-size: 0.875rem;
+}
+
+.benefits-list li span {
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-family: var(--font-secondary);
+}
+
+.hospitals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hospital-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--gray-100);
+  border-radius: 0.5rem;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.hospital-item:hover {
+  background: var(--primary-green-soft);
+  transform: translateX(5px);
+}
+
+.hospital-item i {
+  color: var(--primary-green);
+  font-size: 1rem;
+}
+
+.hospital-item span {
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-family: var(--font-secondary);
+}
+
+.modal-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--gray-200);
+  justify-content: center;
+}
+
+.modal-cta .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Custom scrollbar for modal */
+.modal-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-container::-webkit-scrollbar-track {
+  background: var(--gray-200);
+  border-radius: 4px;
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+  background: var(--primary-green);
+  border-radius: 4px;
+}
+
+.modal-container::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-green-dark);
+}
+
+/* Responsive modal */
+@media (max-width: 768px) {
+  .modal-container {
+    width: 95%;
+    max-height: 85vh;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .stats-grid-modal {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefits-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-cta {
+    flex-direction: column;
+  }
+  
+  .modal-close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+/* Animation for modal content */
+@keyframes modalContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-container.active .modal-header,
+.modal-container.active .modal-body > * {
+  animation: modalContentIn 0.4s ease forwards;
+}
+
+.modal-container.active .modal-header {
+  animation-delay: 0.1s;
+}
+
+.modal-container.active .info-section:first-of-type {
+  animation-delay: 0.2s;
+}
+
+.modal-container.active .stats-grid-modal {
+  animation-delay: 0.3s;
+}
+
+.modal-container.active .info-section:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+
+.modal-container.active .info-section:nth-of-type(3) {
+  animation-delay: 0.5s;
+}
+
+.modal-container.active .modal-cta {
+  animation-delay: 0.6s;
+}

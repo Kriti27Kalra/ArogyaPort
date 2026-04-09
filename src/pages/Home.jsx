@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import TreatmentsSection from './TreatmentsSection';
 
 // --- Data Section ---
 const stats = [
@@ -12,14 +13,14 @@ const stats = [
   { value: "20%", label: "Savings", icon: "💰", target: 20, suffix: "%" },
 ];
 
-const popularTreatments = [
-  { name: "Cardiology", icon: "❤️", desc: "Heart Bypass, Angioplasty, Valve Replacement", success: "98%", price: "$4,500" },
-  { name: "Orthopedics", icon: "🦴", desc: "Knee/Hip Replacement, Spine Surgery", success: "95%", price: "$5,200" },
-  { name: "Oncology", icon: "🎗️", desc: "Cancer Care, Chemotherapy, Radiation", success: "85%", price: "$6,800" },
-  { name: "Organ Transplant", icon: "🫀", desc: "Liver, Kidney, Heart, Bone Marrow", success: "92%", price: "$12,000" },
-  { name: "Cosmetic Surgery", icon: "✨", desc: "Rhinoplasty, Liposuction, Hair Transplant", success: "96%", price: "$3,200" },
-  { name: "Fertility/IVF", icon: "👶", desc: "IVF, ICSI, Surrogacy", success: "75%", price: "$4,000" },
-];
+// const popularTreatments = [
+//   { name: "Cardiology", icon: "❤️", desc: "Heart Bypass, Angioplasty, Valve Replacement", success: "98%", price: "$4,500" },
+//   { name: "Orthopedics", icon: "🦴", desc: "Knee/Hip Replacement, Spine Surgery", success: "95%", price: "$5,200" },
+//   { name: "Oncology", icon: "🎗️", desc: "Cancer Care, Chemotherapy, Radiation", success: "85%", price: "$6,800" },
+//   { name: "Organ Transplant", icon: "🫀", desc: "Liver, Kidney, Heart, Bone Marrow", success: "92%", price: "$12,000" },
+//   { name: "Cosmetic Surgery", icon: "✨", desc: "Rhinoplasty, Liposuction, Hair Transplant", success: "96%", price: "$3,200" },
+//   { name: "Fertility/IVF", icon: "👶", desc: "IVF, ICSI, Surrogacy", success: "75%", price: "$4,000" },
+// ];
 
 const topHospitals = [
   { name: "Max Hospital", location: "Delhi NCR", specialties: "Multi-specialty", rating: 4.8, established: 2001, beds: 500, image: "🏥" },
@@ -272,43 +273,7 @@ export default function Home() {
       </section>
 
       {/* Popular Treatments */}
-      <section className="section treatments">
-        <div className="container">
-          <div className="section-header scroll-animate">
-            <h2>Popular Treatments in India</h2>
-            <p>Choose from a wide range of advanced medical procedures with high success rates</p>
-          </div>
-          <div className="treatments-grid">
-            {popularTreatments.map((treatment, i) => (
-              <div key={i} className="treatment-card scroll-animate" style={{ transitionDelay: `${i * 0.05}s` }}>
-                <div className="treatment-icon">{treatment.icon}</div>
-                <h3>{treatment.name}</h3>
-                <p>{treatment.desc}</p>
-                <div className="treatment-meta">
-                  <div className="treatment-success">
-                    <span className="success-label">Success Rate</span>
-                    <div className="success-bar">
-                      <div className="success-fill" style={{ width: treatment.success }}></div>
-                    </div>
-                    <span className="success-value">{treatment.success}</span>
-                  </div>
-                  <div className="treatment-price">
-                    <span className="price-label">Starting from</span>
-                    <span className="price-value">{treatment.price}</span>
-                  </div>
-                </div>
-                <Link to={`/treatments/${treatment.name.toLowerCase()}`} className="learn-more">
-                  Learn More <i className="fas fa-arrow-right"></i>
-                </Link>
-              </div>
-            ))}
-          </div>
-          <div className="section-cta scroll-animate">
-            <Link to="/treatments" className="btn btn-outline">View All Treatments</Link>
-          </div>
-        </div>
-      </section>
-
+      <TreatmentsSection />
       {/* Why Choose India */}
       <section className="section why-india">
         <div className="container">
