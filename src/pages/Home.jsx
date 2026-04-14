@@ -1,4 +1,4 @@
-// Home.jsx - Professional Version with Scroll Animations
+// Home.jsx - Enhanced Professional Version with Ayurveda Section & Cream Theme
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
@@ -6,29 +6,20 @@ import TreatmentsSection from './TreatmentsSection';
 
 // --- Data Section ---
 const stats = [
-  { value: "3000+", label: "Happy Patients", icon: "😊", target: 3000, suffix: "+" },
-  { value: "50+", label: "Top Hospitals", icon: "🏥", target: 50, suffix: "+" },
-  { value: "200+", label: "Top Doctors", icon: "👨‍⚕️", target: 200, suffix: "+" },
-  { value: "10+", label: "Destinations", icon: "📍", target: 10, suffix: "+" },
-  { value: "20%", label: "Savings", icon: "💰", target: 20, suffix: "%" },
+  { value: "3000+", label: "Happy Patients",  target: 3000, suffix: "+" },
+  { value: "50+", label: "Top Hospitals", target: 50, suffix: "+" },
+  { value: "200+", label: "Top Doctors", target: 200, suffix: "+" },
+  { value: "10+", label: "Destinations", target: 10, suffix: "+" },
+  { value: "20%", label: "Savings", target: 20, suffix: "%" },
 ];
 
-// const popularTreatments = [
-//   { name: "Cardiology", icon: "❤️", desc: "Heart Bypass, Angioplasty, Valve Replacement", success: "98%", price: "$4,500" },
-//   { name: "Orthopedics", icon: "🦴", desc: "Knee/Hip Replacement, Spine Surgery", success: "95%", price: "$5,200" },
-//   { name: "Oncology", icon: "🎗️", desc: "Cancer Care, Chemotherapy, Radiation", success: "85%", price: "$6,800" },
-//   { name: "Organ Transplant", icon: "🫀", desc: "Liver, Kidney, Heart, Bone Marrow", success: "92%", price: "$12,000" },
-//   { name: "Cosmetic Surgery", icon: "✨", desc: "Rhinoplasty, Liposuction, Hair Transplant", success: "96%", price: "$3,200" },
-//   { name: "Fertility/IVF", icon: "👶", desc: "IVF, ICSI, Surrogacy", success: "75%", price: "$4,000" },
-// ];
-
 const topHospitals = [
-  { name: "Max Hospital", location: "Delhi NCR", specialties: "Multi-specialty", rating: 4.8, established: 2001, beds: 500, image: "🏥" },
-  { name: "Jaypee Hospital", location: "Noida", specialties: "Cardiac, Ortho", rating: 4.7, established: 2014, beds: 1200, image: "🏨" },
-  { name: "Fortis Escorts", location: "Delhi", specialties: "Cardiac, Neurology", rating: 4.9, established: 1988, beds: 500, image: "🏥" },
-  { name: "BLK Hospital", location: "Delhi", specialties: "Oncology, Transplant", rating: 4.8, established: 1959, beds: 650, image: "🏨" },
-  { name: "Artemis Hospital", location: "Gurugram", specialties: "Multi-specialty", rating: 4.7, established: 2007, beds: 500, image: "🏥" },
-  { name: "Apollo Hospitals", location: "Chennai/Delhi", specialties: "Multi-specialty", rating: 4.9, established: 1983, beds: 1000, image: "🏨" },
+  { name: "Max Hospital", location: "Delhi NCR", specialties: "Multi-specialty", rating: 4.8, established: 2001, beds: 500, image: "ap1.jpeg" },
+  { name: "Jaypee Hospital", location: "Noida", specialties: "Cardiac, Ortho", rating: 4.7, established: 2014, beds: 1200, image: "ap2.jpeg" },
+  { name: "Fortis Escorts", location: "Delhi", specialties: "Cardiac, Neurology", rating: 4.9, established: 1988, beds: 500, image: "ap1.jpeg" },
+  { name: "BLK Hospital", location: "Delhi", specialties: "Oncology, Transplant", rating: 4.8, established: 1959, beds: 650, image: "ap2.jpeg" },
+  { name: "Artemis Hospital", location: "Gurugram", specialties: "Multi-specialty", rating: 4.7, established: 2007, beds: 500, image: "ap1.jpeg" },
+  { name: "Apollo Hospitals", location: "Chennai/Delhi", specialties: "Multi-specialty", rating: 4.9, established: 1983, beds: 1000, image: "ap2.jpeg" },
 ];
 
 const testimonials = [
@@ -56,6 +47,16 @@ const services = [
   { icon: "🏨", title: "Hotel/Apartment Booking", description: "Comfortable accommodation near hospitals" },
   { icon: "🌐", title: "24/7 Interpreter Assistance", description: "Language support throughout your stay" },
   { icon: "📞", title: "Post-Treatment Follow-up", description: "Continued care after returning home" },
+];
+
+// Ayurvedic Treatments Data
+const ayurvedicTreatments = [
+  { name: "Panchakarma Therapy", icon: "🌿", description: "Detoxification & rejuvenation treatment", duration: "14-21 days", benefits: "Removes toxins, boosts immunity" },
+  { name: "Abhyanga Massage", icon: "🫶", description: "Full body herbal oil massage", duration: "45-60 min", benefits: "Stress relief, improved circulation" },
+  { name: "Shirodhara", icon: "💆", description: "Warm oil flow on forehead", duration: "30-45 min", benefits: "Mental clarity, anxiety relief" },
+  { name: "Yoga & Meditation", icon: "🧘", description: "Traditional wellness practices", duration: "Daily sessions", benefits: "Mind-body harmony, flexibility" },
+  { name: "Rasayana Therapy", icon: "🍃", description: "Rejuvenation & anti-aging", duration: "21-28 days", benefits: "Vitality, cellular regeneration" },
+  { name: "Ayurvedic Diet Plan", icon: "🥗", description: "Personalized nutrition guidance", duration: "Customized", benefits: "Digestive health, weight management" },
 ];
 
 // --- Helper Components ---
@@ -183,97 +184,150 @@ export default function Home() {
 
   return (
     <main className="home-page">
-      {/* Hero Section */}
-     {/* Hero Section with Video Background */}
-<section className="hero" ref={heroRef}>
-  {/* Video Background */}
- <video 
-  className="hero-video" 
-  autoPlay 
-  loop 
-  muted 
-  playsInline
-  poster="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1920&h=1080&fit=crop"
->
-  {/* Local video file from public folder */}
-  <source 
-    src="/health.mp4" 
-    type="video/mp4"
-  />
-  {/* Fallback image if video doesn't load */}
-  <img 
-    src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1920&h=1080&fit=crop" 
-    alt="Medical Tourism Background"
-  />
-</video>
-  
-  <div className="container">
-    <div className="hero-content">
-      <div className="hero-badge scroll-animate">
-        <span className="badge-text">⭐ Trusted by 3000+ Patients Worldwide</span>
-      </div>
-      <h1 className="hero-title scroll-animate">
-        Get Treated in <span className="highlight">India</span>
-      </h1>
-      <p className="hero-subtitle scroll-animate">
-        World-Class Medical Care at Affordable Costs<br />
-        with Complete Travel & Treatment Assistance
-      </p>
-      <form className="hero-search scroll-animate" onSubmit={handleSearch}>
-        <div className="search-box">
-          <i className="fas fa-search"></i>
-          <input 
-            type="text" 
-            placeholder="Search Treatment, Hospital or Doctor..." 
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <button type="submit" className="btn btn-primary">Search</button>
-        </div>
-      </form>
-      <div className="hero-stats scroll-animate">
-        {stats.slice(0, 4).map((stat, i) => (
-          <div key={i} className="hero-stat">
-            <div className="stat-icon">{stat.icon}</div>
-            <Counter target={parseInt(stat.value)} suffix={stat.suffix} duration={2000} />
-            <span className="stat-label">{stat.label}</span>
+      {/* Hero Section with Video Background */}
+      <section className="hero" ref={heroRef}>
+        <video 
+          className="hero-video" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          poster="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1920&h=1080&fit=crop"
+        >
+          <source src="/health.mp4" type="video/mp4" />
+          <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1920&h=1080&fit=crop" alt="Medical Tourism Background" />
+        </video>
+        
+        <div className="container">
+          <div className="hero-content">
+           
+            <h1 className="hero-title scroll-animate">
+              Caring beyond <span className="highlight">Borders</span>
+            </h1>
+            <p className="hero-subtitle scroll-animate">
+              <span className="tagline-primary">Global Standards • Indian Hospitality</span><br />
+              World-Class Medical Care at Affordable Costs with Complete Travel & Treatment Assistance
+            </p>
+            <form className="hero-search scroll-animate" onSubmit={handleSearch}>
+              <div className="search-box">
+                <i className="fas fa-search"></i>
+                <input 
+                  type="text" 
+                  placeholder="Search Treatment, Hospital or Doctor..." 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button type="submit" className="btn btn-primary">Search</button>
+              </div>
+            </form>
+            
           </div>
-        ))}
-      </div>
+        </div>
+        <div className="hero-wave">
+          <svg className="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+            <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g className="parallax">
+              <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,248,235,0.7)" />
+              <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,248,235,0.5)" />
+              <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,248,235,0.3)" />
+              <use xlinkHref="#gentle-wave" x="48" y="7" fill="rgba(255,248,235,0.2)" />
+            </g>
+          </svg>
+        </div>
+      </section>
+
+     {/* Stats Section with Marquee Animation */}
+<section className="stats-marquee-section">
+  <div className="container">
+    <div className="stats-marquee-header scroll-animate">
+      <span className="stats-badge">Our Impact in Numbers</span>
+      <h2>Delivering Excellence in Medical Care</h2>
+      <p>Transforming healthcare journeys with trust, expertise, and compassionate care</p>
     </div>
   </div>
-  <div className="hero-wave">
-    <svg className="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
-      <defs>
-        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-      </defs>
-      <g className="parallax">
-        <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
-        <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-        <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-        <use xlinkHref="#gentle-wave" x="48" y="7" fill="rgba(255,255,255,0.2)" />
-      </g>
-    </svg>
+  
+  <div className="stats-marquee-wrapper">
+    <div className="stats-marquee-track">
+      {/* First set of stats */}
+      {stats.map((stat, i) => (
+        <div key={`stat-${i}`} className="stats-marquee-card">
+          <div 
+            className="stats-card-bg"
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/${i % 2 === 0 ? 'ap1.jpeg' : 'ap2.jpeg'})`
+            }}
+          >
+            <div className="stats-card-overlay"></div>
+          </div>
+          <div className="stats-card-content">
+            <div className="stats-card-icon">{stat.icon}</div>
+            <div className="stats-card-number">
+              <Counter target={parseInt(stat.value)} suffix={stat.suffix} duration={2000} />
+            </div>
+            <div className="stats-card-label">{stat.label}</div>
+            <div className="stats-card-progress">
+              <div className="progress-bar-fill" style={{ width: `${(i + 1) * 20}%` }}></div>
+            </div>
+          </div>
+        </div>
+      ))}
+      
+      {/* Duplicate set for seamless loop */}
+      {stats.map((stat, i) => (
+        <div key={`stat-duplicate-${i}`} className="stats-marquee-card">
+          <div 
+            className="stats-card-bg"
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/${i % 2 === 0 ? 'ap1.jpeg' : 'ap2.jpeg'})`
+            }}
+          >
+            <div className="stats-card-overlay"></div>
+          </div>
+          <div className="stats-card-content">
+            <div className="stats-card-icon">{stat.icon}</div>
+            <div className="stats-card-number">
+              <Counter target={parseInt(stat.value)} suffix={stat.suffix} duration={2000} />
+            </div>
+            <div className="stats-card-label">{stat.label}</div>
+            <div className="stats-card-progress">
+              <div className="progress-bar-fill" style={{ width: `${(i + 1) * 20}%` }}></div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
 
-      {/* Stats Bar */}
-      <section className="stats-bar">
+      {/* Popular Treatments */}
+      <TreatmentsSection />
+      
+      {/* Ayurvedic Treatments Section - New */}
+      <section className="section ayurveda">
         <div className="container">
-          <div className="stats-grid">
-            {stats.map((stat, i) => (
-              <div key={i} className="stat-item scroll-animate">
-                <div className="stat-icon">{stat.icon}</div>
-                <Counter target={parseInt(stat.value)} suffix={stat.suffix} duration={2000} />
-                <div className="stat-title">{stat.label}</div>
+          <div className="section-header scroll-animate">
+            <h2>Ancient Wisdom for Modern Wellness</h2>
+            <p>Experience the healing power of Ayurveda - India's timeless gift to the world</p>
+          </div>
+          <div className="ayurveda-grid">
+            {ayurvedicTreatments.map((treatment, i) => (
+              <div key={i} className="ayurveda-card scroll-animate" style={{ transitionDelay: `${i * 0.05}s` }}>
+                <div className="ayurveda-icon">{treatment.icon}</div>
+                <h3>{treatment.name}</h3>
+                <p className="ayurveda-desc">{treatment.description}</p>
+                <div className="ayurveda-meta">
+                  <span className="duration"><i className="far fa-clock"></i> {treatment.duration}</span>
+                  <span className="benefits"><i className="fas fa-leaf"></i> {treatment.benefits}</span>
+                </div>
+                <Link to="/ayurveda" className="learn-more">Learn More <i className="fas fa-arrow-right"></i></Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Popular Treatments */}
-      <TreatmentsSection />
       {/* Why Choose India */}
       <section className="section why-india">
         <div className="container">
@@ -294,7 +348,7 @@ export default function Home() {
               <Link to="/why-india" className="btn btn-primary">Discover More</Link>
             </div>
             <div className="why-india-image scroll-animate">
-              <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&h=500&fit=crop" alt="Indian Hospital" />
+              <img src="/ap1.jpeg" alt="Indian Hospital" />
               <div className="image-badge">
                 <i className="fas fa-star"></i>
                 <span>JCI Accredited Hospitals</span>
@@ -315,7 +369,7 @@ export default function Home() {
             {topHospitals.map((hospital, i) => (
               <div key={i} className="hospital-card scroll-animate" style={{ transitionDelay: `${i * 0.05}s` }}>
                 <div className="hospital-image">
-                  <div className="hospital-icon">{hospital.image}</div>
+                  <img src={`/${hospital.image}`} alt={hospital.name} />
                 </div>
                 <div className="hospital-info">
                   <h3>{hospital.name}</h3>
@@ -403,54 +457,106 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="section testimonials">
-        <div className="container">
-          <div className="section-header scroll-animate">
-            <h2>What Our Patients Say</h2>
-            <p>Real stories from patients who trusted us for their medical journey</p>
-          </div>
-          <div className="testimonials-carousel">
-            <div className="testimonials-track" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-              {testimonials.map((testimonial, i) => (
-                <div key={i} className="testimonial-slide">
-                  <div className="testimonial-card">
-                    <div className="testimonial-header">
-                      <div className="testimonial-avatar">{testimonial.name.charAt(0).toUpperCase()}</div>
-                      <div className="testimonial-info">
-                        <h4>{testimonial.name}</h4>
-                        <p>From: {testimonial.from}</p>
-                        <p>Treatment: {testimonial.treatment}</p>
-                      </div>
-                      <StarRating rating={testimonial.rating} />
-                    </div>
-                    <p className="testimonial-text">"{testimonial.text}"</p>
-                    <div className="testimonial-footer">
-                      <div className="testimonial-hospital">
-                        <i className="fas fa-hospital"></i> {testimonial.hospital}
-                      </div>
-                      <div className="testimonial-date">
-                        <i className="far fa-calendar-alt"></i> {testimonial.date}
-                      </div>
-                    </div>
+      {/* Testimonials Section - Enhanced Design */}
+<section className="section testimonials-enhanced">
+  <div className="testimonials-bg-pattern"></div>
+  <div className="container">
+    <div className="section-header scroll-animate">
+      <span className="testimonials-badge">Patient Stories</span>
+      <h2>What Our Patients Say</h2>
+      <p>Real stories from patients who trusted us for their medical journey</p>
+    </div>
+    
+    <div className="testimonials-carousel-enhanced">
+      <div className="testimonials-track-enhanced" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+        {testimonials.map((testimonial, i) => (
+          <div key={i} className="testimonial-slide-enhanced">
+            <div className="testimonial-card-enhanced">
+              {/* Quote Icon */}
+              <div className="testimonial-quote-icon">
+                <i className="fas fa-quote-left"></i>
+              </div>
+              
+              <div className="testimonial-header-enhanced">
+                <div className="testimonial-avatar-enhanced">
+                  {testimonial.name.charAt(0).toUpperCase()}
+                  <div className="avatar-ring"></div>
+                </div>
+                <div className="testimonial-info-enhanced">
+                  <h4>{testimonial.name}</h4>
+                  <div className="testimonial-meta">
+                    <span className="meta-location">
+                      <i className="fas fa-map-marker-alt"></i> {testimonial.from}
+                    </span>
+                    <span className="meta-treatment">
+                      <i className="fas fa-stethoscope"></i> {testimonial.treatment}
+                    </span>
                   </div>
                 </div>
-              ))}
-            </div>
-            <div className="testimonial-dots">
-              {testimonials.map((_, i) => (
-                <button 
-                  key={i} 
-                  className={`dot ${activeIndex === i ? 'active' : ''}`}
-                  onClick={() => setActiveIndex(i)}
-                ></button>
-              ))}
+              </div>
+              
+              <p className="testimonial-text-enhanced">
+                <i className="fas fa-quote-right quote-right"></i>
+                {testimonial.text}
+              </p>
+              
+              <div className="testimonial-footer-enhanced">
+                <div className="testimonial-hospital-enhanced">
+                  <i className="fas fa-hospital"></i>
+                  <span>{testimonial.hospital}</span>
+                </div>
+                <StarRating rating={testimonial.rating} />
+                <div className="testimonial-date-enhanced">
+                  <i className="far fa-calendar-alt"></i>
+                  <span>{testimonial.date}</span>
+                </div>
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="testimonial-decoration">
+                <div className="decoration-dot"></div>
+                <div className="decoration-line"></div>
+              </div>
             </div>
           </div>
-          <div className="section-cta scroll-animate">
-            <Link to="/testimonials" className="btn btn-outline">Read More Stories</Link>
-          </div>
-        </div>
-      </section>
+        ))}
+      </div>
+      
+      {/* Navigation Buttons */}
+      <button 
+        className="testimonial-nav prev" 
+        onClick={() => setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
+      >
+        <i className="fas fa-chevron-left"></i>
+      </button>
+      <button 
+        className="testimonial-nav next" 
+        onClick={() => setActiveIndex((prev) => (prev + 1) % testimonials.length)}
+      >
+        <i className="fas fa-chevron-right"></i>
+      </button>
+      
+      <div className="testimonial-dots-enhanced">
+        {testimonials.map((_, i) => (
+          <button 
+            key={i} 
+            className={`dot-enhanced ${activeIndex === i ? 'active' : ''}`}
+            onClick={() => setActiveIndex(i)}
+          >
+            <span className="dot-progress"></span>
+          </button>
+        ))}
+      </div>
+    </div>
+    
+    <div className="section-cta scroll-animate">
+      <Link to="/testimonials" className="btn btn-primary">
+        <i className="fas fa-star"></i> Read More Stories
+        <i className="fas fa-arrow-right"></i>
+      </Link>
+    </div>
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="cta-section">
@@ -470,8 +576,12 @@ export default function Home() {
         </div>
       </section>
 
-     
-      
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button className="scroll-top" onClick={scrollToTop}>
+          <i className="fas fa-arrow-up"></i>
+        </button>
+      )}
     </main>
   );
 }

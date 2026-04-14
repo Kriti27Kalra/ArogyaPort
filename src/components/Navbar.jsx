@@ -34,20 +34,28 @@ export default function Navbar() {
   return (
     <>
       {/* Top Bar */}
-      <div className="topbar">
-        <div className="container">
-          <div className="topbar-content">
-            <div className="topbar-contact">
-              <a href="tel:+919876543210" className="contact-link">
-                <i className="fas fa-phone-alt"></i> +91 98765 43210
-              </a>
-              <a href="mailto:care@medicaltourism.com" className="contact-link">
-                <i className="fas fa-envelope"></i> care@medicaltourism.com
-              </a>
-            </div>
-          </div>
-        </div>
+  <div className="topbar">
+  <div className="container">
+    <div className="topbar-content">
+      
+      {/* Left Side - Contact */}
+      <div className="topbar-contact">
+        <a href="tel:+919876543210" className="contact-link">
+          <i className="fas fa-phone-alt"></i> +91 98765 43210
+        </a>
+        <a href="mailto:care@medicaltourism.com" className="contact-link">
+          <i className="fas fa-envelope"></i> care@medicaltourism.com
+        </a>
       </div>
+
+      {/* Right Side - Google Translate */}
+      <div className="topbar-translate">
+        <div id="google_translate_element"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
       {/* Main Header */}
       <header className={`main-header ${scrolled ? 'scrolled' : ''}`}>

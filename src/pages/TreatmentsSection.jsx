@@ -9,21 +9,23 @@ const popularTreatments = [
     price: "$4,500",
     icon: "🦵",
     detailedInfo: {
-      overview: "Knee replacement surgery (arthroplasty) is a surgical procedure to resurface a knee damaged by arthritis. Metal and plastic parts are used to cap the ends of the bones that form the knee joint, along with the kneecap.",
+      overview: "Knee replacement surgery (arthroplasty) is a surgical procedure to resurface a knee damaged by arthritis. Metal and plastic parts are used to cap the ends of the bones that form the knee joint, along with the kneecap. India offers world-class knee replacement at 60-70% lower cost than Western countries.",
       duration: "2-3 hours",
       recovery: "6-8 weeks",
       hospitalStay: "3-5 days",
       successRate: "95-98%",
       benefits: [
-        "Relieves pain",
+        "Relieves chronic knee pain",
         "Improves mobility and function",
         "Better quality of life",
-        "Long-lasting results (15-20 years)"
+        "Long-lasting results (15-20 years)",
+        "Minimally invasive options available"
       ],
       hospitals: [
         "Apollo Hospitals, Chennai",
         "Fortis Memorial, Gurgaon",
-        "Medanta, Gurugram"
+        "Medanta, Gurugram",
+        "Artemis Hospital, Gurgaon"
       ]
     }
   },
@@ -34,7 +36,7 @@ const popularTreatments = [
     price: "$6,200",
     icon: "❤️",
     detailedInfo: {
-      overview: "Coronary artery bypass graft surgery (CABG) is a procedure to improve blood flow to the heart. Surgeons take a healthy blood vessel from another part of the body to create a new path around blocked arteries.",
+      overview: "Coronary artery bypass graft surgery (CABG) is a procedure to improve blood flow to the heart. Surgeons take a healthy blood vessel from another part of the body to create a new path around blocked arteries. Indian cardiac centers are JCI accredited with success rates matching global standards.",
       duration: "3-6 hours",
       recovery: "6-12 weeks",
       hospitalStay: "7-10 days",
@@ -43,12 +45,14 @@ const popularTreatments = [
         "Reduces risk of heart attack",
         "Improves heart function",
         "Relieves chest pain",
-        "Increases life expectancy"
+        "Increases life expectancy",
+        "Minimally invasive options"
       ],
       hospitals: [
         "Asian Heart Institute, Mumbai",
         "Narayana Health, Bangalore",
-        "Max Hospital, Delhi"
+        "Max Hospital, Delhi",
+        "Fortis Escorts, Delhi"
       ]
     }
   },
@@ -59,7 +63,7 @@ const popularTreatments = [
     price: "$4,200",
     icon: "🦴",
     detailedInfo: {
-      overview: "Hip replacement is a surgical procedure in which the hip joint is replaced by a prosthetic implant. It's typically performed for osteoarthritis or hip fractures.",
+      overview: "Hip replacement is a surgical procedure in which the hip joint is replaced by a prosthetic implant. It's typically performed for osteoarthritis or hip fractures. Indian hospitals use advanced ceramic and metal implants for longer durability.",
       duration: "1-2 hours",
       recovery: "4-6 weeks",
       hospitalStay: "3-4 days",
@@ -68,12 +72,14 @@ const popularTreatments = [
         "Eliminates hip pain",
         "Restores mobility",
         "Improves quality of life",
-        "Long-lasting results"
+        "Long-lasting results (15-20 years)",
+        "Same-day walking possible"
       ],
       hospitals: [
         "Artemis Hospital, Gurgaon",
         "Kokilaben Hospital, Mumbai",
-        "Manipal Hospital, Bangalore"
+        "Manipal Hospital, Bangalore",
+        "Jaypee Hospital, Noida"
       ]
     }
   },
@@ -84,7 +90,7 @@ const popularTreatments = [
     price: "$5,800",
     icon: "💪",
     detailedInfo: {
-      overview: "Spine surgery includes various procedures to treat back pain, herniated discs, spinal stenosis, and other spinal conditions using minimally invasive techniques.",
+      overview: "Spine surgery includes various procedures to treat back pain, herniated discs, spinal stenosis, and other spinal conditions using minimally invasive techniques. Indian neurosurgeons are globally trained with advanced navigation systems.",
       duration: "2-4 hours",
       recovery: "8-12 weeks",
       hospitalStay: "4-7 days",
@@ -93,12 +99,14 @@ const popularTreatments = [
         "Relieves chronic back pain",
         "Restores spinal stability",
         "Improves mobility",
-        "Minimally invasive options"
+        "Minimally invasive options",
+        "Faster return to work"
       ],
       hospitals: [
         "Wockhardt Hospital, Mumbai",
         "Columbia Asia, Bangalore",
-        "Jaypee Hospital, Noida"
+        "Jaypee Hospital, Noida",
+        "Max Hospital, Delhi"
       ]
     }
   },
@@ -109,7 +117,7 @@ const popularTreatments = [
     price: "$3,500",
     icon: "🎗️",
     detailedInfo: {
-      overview: "Comprehensive cancer treatment including surgery, chemotherapy, radiation therapy, targeted therapy, and immunotherapy provided by expert oncologists.",
+      overview: "Comprehensive cancer treatment including surgery, chemotherapy, radiation therapy, targeted therapy, and immunotherapy provided by expert oncologists. India has specialized cancer centers with advanced linear accelerators and PET-CT facilities.",
       duration: "Varies by case",
       recovery: "Varies by case",
       hospitalStay: "As needed",
@@ -118,12 +126,14 @@ const popularTreatments = [
         "Multidisciplinary approach",
         "Advanced treatment options",
         "Palliative care support",
-        "Clinical trials access"
+        "Clinical trials access",
+        "Affordable targeted therapy"
       ],
       hospitals: [
         "Tata Memorial, Mumbai",
         "HCG Cancer Centre, Bangalore",
-        "Rajiv Gandhi Cancer Institute, Delhi"
+        "Rajiv Gandhi Cancer Institute, Delhi",
+        "Artemis Hospital, Gurgaon"
       ]
     }
   },
@@ -134,7 +144,7 @@ const popularTreatments = [
     price: "$15,000",
     icon: "🏥",
     detailedInfo: {
-      overview: "Organ transplantation including kidney, liver, heart, and lung transplants performed by experienced transplant surgeons with high success rates.",
+      overview: "Organ transplantation including kidney, liver, heart, and lung transplants performed by experienced transplant surgeons with high success rates. India has some of the busiest and most successful transplant programs in the world.",
       duration: "4-8 hours",
       recovery: "3-6 months",
       hospitalStay: "2-4 weeks",
@@ -143,12 +153,14 @@ const popularTreatments = [
         "Life-saving procedure",
         "Improved quality of life",
         "Expert transplant teams",
-        "Comprehensive post-transplant care"
+        "Comprehensive post-transplant care",
+        "Shorter waiting times"
       ],
       hospitals: [
         "Apollo Hospitals, Chennai",
         "Medanta, Gurugram",
-        "Fortis, Delhi"
+        "Fortis, Delhi",
+        "BLK Hospital, Delhi"
       ]
     }
   }
@@ -203,9 +215,20 @@ const TreatmentsSection = () => {
 
   return (
     <>
-      <section className="section treatments">
+      <section 
+        className="section treatments-section-enhanced"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/ap2.jpeg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="treatments-bg-overlay"></div>
         <div className="container">
           <div className="section-header scroll-animate">
+            <span className="treatments-badge">World-Class Medical Procedures</span>
             <h2>Popular Treatments in India</h2>
             <p>Choose from a wide range of advanced medical procedures with high success rates</p>
           </div>
@@ -242,7 +265,7 @@ const TreatmentsSection = () => {
             ))}
           </div>
           <div className="section-cta scroll-animate">
-            <Link to="/treatments" className="btn btn-outline">View All Treatments</Link>
+            <Link to="/treatments" className="btn btn-outline-light">View All Treatments</Link>
           </div>
         </div>
       </section>
