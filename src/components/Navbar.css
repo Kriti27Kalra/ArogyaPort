@@ -779,3 +779,132 @@
     height: 38px;
   }
 }
+/* Register Dropdown Styles */
+.register-dropdown {
+  position: relative;
+}
+
+.btn-register {
+  background: var(--primary-green);
+  color: white;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  white-space: nowrap;
+  font-family: var(--font-primary);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-register:hover {
+  background: var(--primary-green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+.register-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  min-width: 280px;
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  animation: slideDown 0.2s ease;
+  overflow: hidden;
+}
+
+.register-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-bottom: 1px solid var(--border);
+}
+
+.register-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.register-dropdown-item:hover {
+  background: var(--bg-light);
+}
+
+.register-dropdown-item i {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(46, 125, 50, 0.1);
+  border-radius: 50%;
+  color: var(--primary-green);
+}
+
+.register-dropdown-item div {
+  flex: 1;
+}
+
+.register-dropdown-item strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-family: var(--font-primary);
+  margin-bottom: 0.25rem;
+}
+
+.register-dropdown-item span {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-secondary);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .register-dropdown-menu {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+    animation: slideUp 0.3s ease;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .register-dropdown-item {
+    padding: 1.25rem;
+  }
+}

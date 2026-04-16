@@ -1,6 +1,6 @@
-// src/App.js - Clean version without language/currency translators
+// src/App.js - Fixed version
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -24,7 +24,8 @@ import FAQ from './pages/FAQ';
 import About from './pages/About';
 import WhyIndia from './pages/WhyIndia';
 import Login from './pages/Login';
-import Register from './pages/Register';
+import PatientRegister from './pages/PatientRegister';
+import DoctorRegister from './pages/DoctorRegister';
 
 // User Panel
 import Dashboard from './components/UserPanel/Dashboard';
@@ -71,7 +72,11 @@ function App() {
               <Route path="/enquiry" element={<Enquiry />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              
+              {/* Registration Routes */}
+              <Route path="/register/patient" element={<PatientRegister />} />
+              <Route path="/register/doctor" element={<DoctorRegister />} />
+              <Route path="/register" element={<Navigate to="/register/patient" replace />} />
               
               {/* User Panel Routes */}
               <Route path="/dashboard" element={<Dashboard />}>
